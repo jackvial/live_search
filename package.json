@@ -1,0 +1,29 @@
+{
+  "name": "live_search",
+  "version": "1.0.0",
+  "description": "Live search plugin with autocomplete and string rank",
+  "main": "index.html",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jackvial/live_search.git"
+  },
+  "keywords": [
+    "Live",
+    "search",
+    "autocomplete",
+    "quicksilver",
+    "jquery"
+  ],
+  "author": "Jack Vial",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jackvial/live_search/issues"
+  },
+  "homepage": "https://github.com/jackvial/live_search",
+  "devDependencies": {
+    "jest-cli": "^0.1.18"
+  }
+}

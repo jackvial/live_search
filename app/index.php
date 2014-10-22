@@ -1,6 +1,6 @@
 <?php
 
-
+	// This would usually come from the database
 	 $items = [["framework" => "Agavi"],
 	 		["framework" => "AIDA Web"],
 	 		["framework" => "Akelos"],
