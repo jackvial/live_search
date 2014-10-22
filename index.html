@@ -3,7 +3,8 @@
     <head> 
         <meta charset="utf-8"> 
         <title>jQuery Livesearch Effect</title> 
-        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <link rel="stylesheet" type="text/css" href="./public/css/styles.css">
+        <link rel="stylesheet" type="text/css" href="./public/bower_components/jquery-ui/themes/smoothness/jquery-ui.min.css">
     </head> 
     <body> 
         <div id="all"> 
@@ -11,92 +12,12 @@
             <h4>Find Your Favourite Web Framework</h4> 
             <input id="query" /> 
             <span id="tip"><-- Type in here and get search results LIVE!</span> 
-            <ul id="results"></ul> 
         </div> 
           
-<script type="text/javascript" src="./bower_components/jquery/dist/jquery.min.js"></script> 
-<script type="text/javascript" src="./quicksilver/quicksilver.js"></script> 
-<script> 
-//  A placeholder for the real code 
-</script> 
-<script> 
-    // Array of data that would usually come from an ajax request
-    var items = ["Agavi","AIDA Web","Akelos","Apache Click","Apache Cocoon","Apache Struts","Apache Wicket","AppFuse","Aranea","ASP.NET MVC","Axiom Stack","BFC","CakePHP","DooPHP","Camping","Catalyst","CherryPy","CodeIgniter","ColdSpring","Csla","CppCMS","CubicWeb","Django","Drupal","DotNetNuke","eZ Components","Flex","FUSE","Fusebox","Google Web Toolkit","Grok","Grails","Hamlets","Helix","Horde","Interchange","ItsNat","IT Mill Toolkit","JavaServer Faces","JBoss Seam","Kepler","Kohana","KumbiaPHP","Lift","LISA","ManyDesigns Portofino","Mason","Maypole","Mach-II","Merb","Midgard","Model-Glue","MonoRail","Morfik","Nitro","onTap","OpenACS","OpenLaszlo","OpenXava","Orbit","Orinoco","PEAR","PHP For Applications","PHP Work","Pyjamas","Pylons","Qcodo","RIFE","Ruby on Rails","Samstyle","Seaside","Shale","SilverStripe (Sapphire)","Simplicity","Sinatra","SmartClient","Sofia","SPIP","Spring","Stripes","Symfony","Tapestry","ThinWire","Tigermouse","Vaadin","TurboGears","Wavemaker","web2py","WebObjects","WebWork","Wigbi","Yii","Zend","ZK","Zoop","Zope 2","Zope 3","ztemplates"]; 
-
-</script> 
-<script type="text/javascript">
-    
-
-$(function(){ 
-    var timer = null; 
-
-    $("#query").keyup(function(){ 
-        if (timer) { 
-            clearTimeout(timer); 
-        } 
-        // Call the filter function every 200 miliseconds
-        timer = setTimeout("filter()", 200); 
-    }); 
-}); 
-  
-function filter(){ 
-
-    var query = $("#query").val().toLowerCase(); 
-      
-    var scores = []; 
-      
-    if (query.length == 0) { 
-        // Empty result ul when there is no query in the text input
-        $("#results").html(""); 
-
-    } else {
-
-        // When there is a query iterate over the items
-        $.each(items, function(){ 
-            // Get the score of the query compared to the current item in the loop (0, 0.1, 0.2, 0.3...0.9, 1)
-            var score = this.toLowerCase().score(query); 
-              
-            // If the score is above 0 then push the current item and its score to the scores array
-            if (score > 0) { 
-                // Creates a 2d array [[score, item], [score, item], [score, item]]
-                scores.push([score, this+""]); 
-            } 
-            //console.log(scores);
-        }); 
-
-        // If there are items in scores
-        if (scores.length) { 
-            // First clear out the old results
-            $("#results").html(""); 
-
-            // Sort the items in scores
-            scores = scores.sort(function(a, b){
-
-                // Sort by score, highest to lowest
-                // Remember, score is at index 0 of every itemm: [[score, item], [0, 1], [0, 1]]
-                return b[0] - a[0];
-
-             });
-
-            
-            $.each(scores, function(index, elem){
-
-                    //console.log(elem[1]);
-                    // Create an li for each item in scores
-                    var entry = "<li>" + this[1] +"</li>"; 
-
-                    // This is slow, fix to append after loop
-                    $("#results").append(entry); 
-
-            }); 
-
-        } else {
-
-            // Clear the list if there are no items in score
-            $("#results").html(""); 
-        } 
-    } 
-}
-</script>     
-</body> 
+        <script type="text/javascript" src="./public/bower_components/jquery/dist/jquery.min.js"></script> 
+        <script type="text/javascript" src="./public/bower_components/jquery-ui/jquery-ui.min.js"></script> 
+        <script type="text/javascript" src="./public/js/quicksilver/quicksilver.js"></script> 
+        <script type="text/javascript" src="./public/js/live_search.js"></script> 
+        <script type="text/javascript" src="./public/js/main.js"></script>      
+    </body> 
 </html>
